@@ -11,7 +11,7 @@ import {
     TextInput,
     Dimensions,
     Platform,
-    BackHandler
+    Alert
 } from 'react-native';
 
 let marginOrWidth = Dimensions.get('window').width * 0.05;
@@ -35,6 +35,7 @@ export default class Login extends Component {
         };
 
         this.updatePw = this.updatePw.bind(this);
+        this.optionlSelected = this.optionlSelected.bind(this);
     }
 
 
@@ -72,6 +73,18 @@ export default class Login extends Component {
     }
 
     userPressConfirm() {
+        Alert.alert(
+            '提示',
+            '确认登录吗？',
+        [
+            {text: '确定', onPress: this.optionlSelected }
+                ]
+        );
+    }
+
+    optionlSelected() {
+        console.log(this);
+        console.log('我点了');
         this.props.onPressed(this.state.inputedNum, this.state.inputedPw)
     }
 
@@ -107,7 +120,8 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 15,
         height: 40,
-        padding: 12.5
+        padding: 12.5,
+        elevation: 50
     }
 });
 
