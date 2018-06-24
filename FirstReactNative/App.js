@@ -10,6 +10,8 @@ import {
 
 import Login from './Login/Login'
 import Waiting from './Login/Waiting'
+import ViewCompent from "./Login/ViewCompent";
+import AndriodButton from './Login/AndroidButton'
 
 export default class App extends Component<Props> {
 
@@ -28,12 +30,18 @@ export default class App extends Component<Props> {
 
         if (this.state.currentScene === 'Login') {
             return (
-                <Login onPressed={this.onLoginPressed}/>
-        );
-        } else {
+                <Login onPressed={this.onLoginPressed}
+                       onPressToView={() => this.setState({currentScene: 'ViewCompent'})}
+                       onPressAndroidButton={() => this.setState({currentScene: 'AndroidButton'})}/>
+            );
+        } else if (this.state.currentScene === 'Waiting') {;
             return <Waiting phoneNumber={this.state.phoneNum}
-            userPassword={this.state.userPw}
-            onGoBackPressed={this.handleBackSignal}/>
+                            userPassword={this.state.userPw}
+                            onGoBackPressed={this.handleBackSignal}/>
+        } else if (this.state.currentScene === 'ViewCompent') {
+            return <ViewCompent/>
+        } else if (this.state.currentScene === 'AndroidButton') {
+            return <AndriodButton/>
         }
     }
 

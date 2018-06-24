@@ -3,7 +3,7 @@
  */
 
 import React, { Component } from 'react';
-
+import PropTypes from 'prop-types'
 import {
     StyleSheet,
     Text,
@@ -68,6 +68,16 @@ export default class Login extends Component {
                       onPress={this.userPressAddressBook()}>
                     通讯录
                 </Text>
+
+                <Text style={styles.bigTextPrompt}
+                      onPress={() => this.props.onPressToView()}>
+                    View
+                </Text>
+
+                <Text style={styles.bigTextPrompt}
+                      onPress={() => this.props.onPressAndroidButton()}>
+                    安卓button
+                </Text>
             </View>
         );
     }
@@ -125,3 +135,7 @@ const styles = StyleSheet.create({
     }
 });
 
+Login.propTypes = {
+    onPressToView: PropTypes.func,
+    onPressAndroidButton: PropTypes.func
+};
