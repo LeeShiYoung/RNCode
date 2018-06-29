@@ -3,7 +3,6 @@
  */
 
 import React, { Component } from 'react';
-
 import {
     StyleSheet,
     Text,
@@ -13,6 +12,7 @@ import {
     Platform,
     BackHandler
 } from 'react-native';
+import Utilities from '../Utilities/Utilities'
 
 let marginOrWidth = Dimensions.get('window').width * 0.05;
 
@@ -32,11 +32,11 @@ export default class Login extends Component {
         this.state = {
             inputedNum: '',
             inputedPw: ''
+
         };
 
         this.updatePw = this.updatePw.bind(this);
     }
-
 
     updatePw(inputedPw) {
         this.setState({inputedPw});
@@ -95,6 +95,11 @@ const styles = StyleSheet.create({
                 fontSize: 20
             },
         }),
+        ...Utilities.ifIphoneX({
+            marginTop: 54,
+        }, {
+            marginTop: 30,
+        })
     },
     textPromptStyle: {
         margin: marginOrWidth,
