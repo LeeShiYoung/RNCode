@@ -3,6 +3,7 @@
  */
 
 import React, { Component } from 'react';
+import PropTypes from 'prop-types'
 import {
     StyleSheet,
     Text,
@@ -10,7 +11,7 @@ import {
     TextInput,
     Dimensions,
     Platform,
-    BackHandler
+    Alert
 } from 'react-native';
 import Utilities from '../Utilities/Utilities'
 
@@ -36,6 +37,7 @@ export default class Login extends Component {
         };
 
         this.updatePw = this.updatePw.bind(this);
+        this.optionlSelected = this.optionlSelected.bind(this);
     }
 
     updatePw(inputedPw) {
@@ -67,11 +69,33 @@ export default class Login extends Component {
                       onPress={this.userPressAddressBook()}>
                     通讯录
                 </Text>
+
+                <Text style={styles.bigTextPrompt}
+                      onPress={() => this.props.onPressToView()}>
+                    View
+                </Text>
+
+                <Text style={styles.bigTextPrompt}
+                      onPress={() => this.props.onPressAndroidButton()}>
+                    安卓button
+                </Text>
             </View>
         );
     }
 
     userPressConfirm() {
+        Alert.alert(
+            '提示',
+            '确认登录吗？',
+        [
+            {text: '确定', onPress: this.optionlSelected }
+                ]
+        );
+    }
+
+    optionlSelected() {
+        console.log(this);
+        console.log('我点了');
         this.props.onPressed(this.state.inputedNum, this.state.inputedPw)
     }
 
@@ -112,7 +136,12 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         fontSize: 15,
         height: 40,
-        padding: 12.5
+        padding: 12.5,
+        elevation: 50
     }
 });
 
+Login.propTypes = {
+    onPressToView: PropTypes.func,
+    onPressAndroidButton: PropTypes.func
+};

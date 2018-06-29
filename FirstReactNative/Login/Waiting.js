@@ -3,13 +3,16 @@
  */
 
 import React, {Component} from 'react';
+import PropTypes from 'prop-types'
 import {
     StyleSheet,
     View,
-    Text
+    Text,
 } from 'react-native';
 
+
 export default class Waiting extends Component {
+
     render() {
         return (
             <View style={styles.container}>
@@ -52,3 +55,9 @@ const styles = StyleSheet.create({
         fontSize: 60
     }
 });
+
+// 属性确认
+Waiting.propTypes = {
+    phoneNumber: PropTypes.string.isRequired,
+    userPassword: PropTypes.string
+};
