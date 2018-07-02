@@ -66,8 +66,8 @@ export default class Login extends Component {
                     确定
                 </Text>
                 <Text style={styles.bigTextPrompt}
-                      onPress={this.userPressAddressBook()}>
-                    通讯录
+                      onPress={() => this.props.onPressToList()}>
+                    List
                 </Text>
 
                 <Text style={styles.bigTextPrompt}
@@ -143,5 +143,6 @@ const styles = StyleSheet.create({
 
 Login.propTypes = {
     onPressToView: PropTypes.func,
-    onPressAndroidButton: PropTypes.func
+    onPressAndroidButton: PropTypes.func,
+    onPressToList: PropTypes.func
 };

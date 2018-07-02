@@ -7,7 +7,8 @@ import {
     StyleSheet,
     View,
     Text,
-    Image
+    Image,
+    Button
 } from 'react-native';
 
 export default class ViewCompent extends Component {
@@ -15,12 +16,15 @@ export default class ViewCompent extends Component {
         return (
             <View style={styles.containter}>
 
-                <Text style={styles.textStyle}>
+                <Text style={styles.buttonStyle}>
                     我是Text
                 </Text>
                 <Image style={styles.imageStyle}
                        source={{uri: 'https://www.google.com.hk/images/branding/googlelogo/2x/googlelogo_color_272x92dp.png'}}
                        onLoad={(event) => {console.log(event.timeStamp)}}/>
+                <Button style={styles.buttonStyle}
+                        title={'点我'}
+                        onPress={(aaa) => {console.log(aaa)}}/>
             </View>
         );
     }
@@ -37,10 +41,18 @@ const styles = StyleSheet.create({
         marginTop: 54
     },
     imageStyle: {
-        marginTop: 60,
+        marginTop: 20,
         width: 375,
         height: 200,
         backgroundColor: 'red',
         resizeMode: 'center'
+    },
+    buttonStyle: {
+        marginTop: 50,
+        backgroundColor: 'red',
+        width: 100,
+        height:50,
+        borderColor: 'blue',
+        borderWidth: 1
     }
 });

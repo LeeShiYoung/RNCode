@@ -12,6 +12,7 @@ import Login from './Login/Login'
 import Waiting from './Login/Waiting'
 import ViewCompent from "./Login/ViewCompent";
 import AndriodButton from './Login/AndroidButton'
+import ListCompent from "./Login/ListCompent";
 
 export default class App extends Component<Props> {
 
@@ -32,7 +33,8 @@ export default class App extends Component<Props> {
             return (
                 <Login onPressed={this.onLoginPressed}
                        onPressToView={() => this.setState({currentScene: 'ViewCompent'})}
-                       onPressAndroidButton={() => this.setState({currentScene: 'AndroidButton'})}/>
+                       onPressAndroidButton={() => this.setState({currentScene: 'AndroidButton'})}
+                onPressToList={() => this.setState({currentScene: 'ListCompent'})}/>
             );
         } else if (this.state.currentScene === 'Waiting') {;
             return <Waiting phoneNumber={this.state.phoneNum}
@@ -40,6 +42,8 @@ export default class App extends Component<Props> {
                             onGoBackPressed={this.handleBackSignal}/>
         } else if (this.state.currentScene === 'ViewCompent') {
             return <ViewCompent/>
+        } else if (this.state.currentScene === 'ListCompent') {
+            return <ListCompent/>
         } else if (this.state.currentScene === 'AndroidButton') {
             return <AndriodButton/>
         }
