@@ -48,9 +48,11 @@ export default class Login extends Component {
 
         return (
             <View style={styles.container}>
-                <TextInput style={styles.textInputStyle}
+                <TextInput value={'我是默认值'}
+                           style={styles.textInputStyle}
                            placeholder={'请输入手机号'}
-                           onChangeText={(inputedNum) => this.setState({inputedNum})}/>
+                           onChangeText={(inputedNum) => this.setState({inputedNum})}
+                           underlineColorAndroid={'gray'}/>
 
                 <Text style={styles.textPromptStyle}>
                     您输入的手机号：{this.state.inputedNum}
