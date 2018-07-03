@@ -13,6 +13,7 @@ export default class ReduxDemo extends Component {
     render() {
 
         let store = createStore(rootReducers);
+        console.log(store.getState());
         return(
             <Provider store={store}>
                 <ReduxComponent/>

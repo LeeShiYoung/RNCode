@@ -5,7 +5,8 @@
 import * as types from '../Action/Action'
 
 const initState = {
-    text: ''
+    text: '',
+    num: 0
 };
 
 const todos = (state = initState, action) => {
@@ -20,4 +21,18 @@ const todos = (state = initState, action) => {
     }
 };
 
-export default todos;
+const counter = (state = initState, action) => {
+    switch (action.type) {
+        case types.ADD_NUm:
+            state.num = action.num;
+            return Object.assign({}, state);
+
+        case types.REDUCE_NUM:
+            state.num = action.num;
+            return Object.assign({}, state);
+
+        default:
+            return Object.assign({}, state);
+    }
+};
+export {todos, counter};
