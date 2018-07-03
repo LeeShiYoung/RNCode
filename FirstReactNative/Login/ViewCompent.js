@@ -3,14 +3,13 @@
  */
 
 import React, {Component} from 'react';
+
 import {
     StyleSheet,
     View,
     Text,
     Image,
-    TextInput
-    Image,
-    Button
+    TextInput,
 } from 'react-native';
 
 export default class ViewCompent extends Component {
@@ -20,8 +19,8 @@ export default class ViewCompent extends Component {
         this.state = {
             viewColor: 'yellow'
         };
-        this.changeColor = this.changeColor.bind(this);
     }
+
     render() {
         return (
             <View style={styles.containter}>

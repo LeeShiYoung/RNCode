@@ -78,8 +78,8 @@ export default class Login extends Component {
                 </Text>
 
                 <Text style={styles.bigTextPrompt}
-                      onPress={() => this.props.onPressAndroidButton()}>
-                    安卓button
+                      onPress={() => this.props.onPressRedux()}>
+                    Redux
                 </Text>
             </View>
         );
@@ -146,5 +146,6 @@ const styles = StyleSheet.create({
 Login.propTypes = {
     onPressToView: PropTypes.func,
     onPressAndroidButton: PropTypes.func,
-    onPressToList: PropTypes.func
+    onPressToList: PropTypes.func,
+    onPressRedux: PropTypes.func
 };

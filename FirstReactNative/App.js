@@ -13,6 +13,7 @@ import Waiting from './Login/Waiting'
 import ViewCompent from "./Login/ViewCompent";
 import AndriodButton from './Login/AndroidButton'
 import ListCompent from "./Login/ListCompent";
+import ReduxDemo from "./Login/ReduxDemo";
 
 export default class App extends Component<Props> {
 
@@ -34,7 +35,8 @@ export default class App extends Component<Props> {
                 <Login onPressed={this.onLoginPressed}
                        onPressToView={() => this.setState({currentScene: 'ViewCompent'})}
                        onPressAndroidButton={() => this.setState({currentScene: 'AndroidButton'})}
-                onPressToList={() => this.setState({currentScene: 'ListCompent'})}/>
+                       onPressToList={() => this.setState({currentScene: 'ListCompent'})}
+                       onPressRedux={() => this.setState({currentScene: 'Redux'})}/>
             );
         } else if (this.state.currentScene === 'Waiting') {;
             return <Waiting phoneNumber={this.state.phoneNum}
@@ -46,6 +48,8 @@ export default class App extends Component<Props> {
             return <ListCompent/>
         } else if (this.state.currentScene === 'AndroidButton') {
             return <AndriodButton/>
+        } else if (this.state.currentScene === 'Redux') {
+            return <ReduxDemo/>
         }
     }
 
