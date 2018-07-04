@@ -24,10 +24,8 @@ class ReduxCompent extends Component {
 
     render() {
         const {dispatch, todos, counter} = this.props;
-        var {num} = counter;
-        var {text} = todos;
-        console.log(num);
-        console.log(text);
+        let num = counter.num;
+        let text = todos.text;
         return (
             <View style={styles.containter}>
                 <TouchableOpacity style={[styles.row, {marginTop:100}]}
@@ -77,12 +75,6 @@ const styles = StyleSheet.create({
     }
 });
 
-function mapStateToProps(state) {
-    const {todos, counter} = state;
-    return {
-        todos,
-        counter
-    }
-}
+const mapStateToProps = ({ todos, counter }) => ({ todos, counter });
 
 export default connect(mapStateToProps)(ReduxCompent);

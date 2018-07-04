@@ -2,20 +2,20 @@
  * Created by Young on 2018/7/3.
  */
 
-import * as types from './Action'
+import { UPDATE_TEXT, ADD_NUm, REDUCE_NUM } from "../Action/Action";
 
 export const addTodo = num => ({
-    type: types.ADD_NUm,
+    type: ADD_NUm,
     num
 });
 
 export const reduceTodo = num => ({
-    type: types.REDUCE_NUM,
+    type: REDUCE_NUM,
     num
 });
 
 export const updateText = text => ({
-    type: types.UPDATE_TEXT,
+    type: UPDATE_TEXT,
     text
 });
 

@@ -2,7 +2,7 @@
  * Created by Young on 2018/7/3.
  */
 
-import * as types from '../Action/Action'
+import {UPDATE_TEXT, ADD_NUm, REDUCE_NUM} from "../Action/Action";
 
 const initState = {
     text: '',
@@ -11,28 +11,36 @@ const initState = {
 
 const todos = (state = initState, action) => {
     switch (action.type) {
-        case types.UPDATE_TEXT:
-            state.text = action.text;
-            return Object.assign({}, state);
-
+        case UPDATE_TEXT:
+            return {
+                ...state,
+                text: action.text
+            };
         default:
-            return Object.assign({}, state);
-
+            return {
+                ...state,
+            }
     }
 };
 
 const counter = (state = initState, action) => {
     switch (action.type) {
-        case types.ADD_NUm:
-            state.num = action.num;
-            return Object.assign({}, state);
+        case ADD_NUm:
+            return {
+                ...state,
+                num: action.num,
+            };
 
-        case types.REDUCE_NUM:
-            state.num = action.num;
-            return Object.assign({}, state);
+        case REDUCE_NUM:
+            return {
+                ...state,
+                num: action.num,
+            };
 
         default:
-            return Object.assign({}, state);
+            return {
+                ...state,
+            }
     }
 };
 export {todos, counter};
