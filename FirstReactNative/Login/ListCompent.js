@@ -11,40 +11,9 @@ import {
     ListView
 } from 'react-native';
 import Utilities from "../Utilities/Utilities";
+import axios from 'axios';
 
 export default class ListCompent extends Component {
-    // constructor(props) {
-    //     super(props);
-    //     this.data = [{key: 'a'}, {key: 'b'}];
-    //
-    //    //  this.count = 0;
-    //    // let timer = setInterval(() => {
-    //    //     this.count++;
-    //    //     if (this.count > 10) {
-    //    //         clearInterval(timer);s
-    //    //     }
-    //    //     this.data.push({'key': 'add'});
-    //    //     console.log('------刷新');
-    //    //  }, 1);
-    //
-    //     this.state = {
-    //        data: this.data
-    //     };
-    //
-    //     console.log(Date());
-    //     setTimeout(() => {
-    //         console.log('啥时候执行' + Date());
-    //
-    //         this.data.push({key: 'aa'}, {key: 'bb'});
-    //         this.setState({
-    //             data: this.data,
-    //         }, () => {
-    //             console.log('state ' + Date());
-    //             console.log(this.state.data);
-    //         });
-    //     }, 1000);
-    //
-    // }
 
     constructor(props) {
         super(props);
@@ -52,27 +21,32 @@ export default class ListCompent extends Component {
         this.state = {
             dataSource: ds.cloneWithRows(['row 1', 'row 2']),
         };
-
-
+        this.fetchData();
     }
     render() {
         return (
             <ListView style={styles.listStyle}
-                dataSource={this.state.dataSource}
-                renderRow={(rowData) => <Text style={styles.textStyle}>{rowData}</Text>}
+                      dataSource={this.state.dataSource}
+                      renderRow={(rowData) => <Text style={styles.textStyle}>{rowData}</Text>}
             />
         );
     }
-    // render() {
-    //     return (
-    //         <View style={styles.containter}>
-    //             <FlatList style={styles.listStyle}
-    //                       data={this.state.data}
-    //                       renderItem={({item}) => <Text style={styles.textStyle}>{item.key}</Text>}
-    //             />
-    //         </View>
-    //     );
-    // }
+
+    fetchData() {
+        axios
+            .get('https://v.juhe.cn/toutiao/index?type=top&key=c470dae6931d85934a3ee3ec566485ef')
+            .then(response => this.mapToModel(response.data.result))
+            .catch(error => console.log(error));
+    }
+
+    mapToModel({stat, data}) {
+        console.log(stat);
+        console.log(data);
+        data.map(({author_name, date}) => {
+            console.log(author_name);
+            console.log(date);
+        });
+    }
 }
 
 const styles = StyleSheet.create({
