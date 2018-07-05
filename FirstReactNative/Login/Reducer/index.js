@@ -6,8 +6,8 @@ import {combineReducers} from 'redux';
 import {todos, counter} from './toDo';
 
 const rootReducers = combineReducers({
-   todos,
-    counter
+    todos,
+    counter,
 });
 
 export default rootReducers;
