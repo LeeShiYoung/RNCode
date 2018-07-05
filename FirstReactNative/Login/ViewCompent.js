@@ -22,6 +22,7 @@ export default class ViewCompent extends Component {
     }
     render() {
         return (
+
             <View style={styles.containter}>
 
                 <TextInput style={styles.textStyle}

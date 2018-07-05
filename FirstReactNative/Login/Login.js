@@ -11,7 +11,8 @@ import {
     TextInput,
     Dimensions,
     Platform,
-    Alert
+    Alert,
+    StatusBar
 } from 'react-native';
 import Utilities from '../Utilities/Utilities'
 
@@ -48,7 +49,11 @@ export default class Login extends Component {
 
         return (
             <View style={styles.container}>
-                <TextInput value={'我是默认值'}
+                <StatusBar networkActivityIndicatorVisible={false}
+                           barStyle={'dark-content'}
+                           translucent={true}/>
+                <TextInput ref='textIpunt'
+                           value={'我是默认值'}
                            style={styles.textInputStyle}
                            placeholder={'请输入手机号'}
                            onChangeText={(inputedNum) => this.setState({inputedNum})}
@@ -96,8 +101,14 @@ export default class Login extends Component {
     }
 
     optionlSelected() {
-        console.log(this);
-        console.log('我点了');
+        this.refs.textIpunt.measure((fx, fy, width, height, px, py) => {
+            console.log(fx);
+            console.log(fy);
+            console.log(width);
+            console.log(height);
+            console.log(px);
+            console.log(py);
+        });
         this.props.onPressed(this.state.inputedNum, this.state.inputedPw)
     }
 
