@@ -3,12 +3,13 @@
  */
 
 import React, {Component} from 'react';
+
 import {
     StyleSheet,
     View,
     Text,
     Image,
-    TextInput
+    TextInput,
 } from 'react-native';
 
 export default class ViewCompent extends Component {
@@ -18,8 +19,8 @@ export default class ViewCompent extends Component {
         this.state = {
             viewColor: 'yellow'
         };
-        this.changeColor = this.changeColor.bind(this);
     }
+
     render() {
         return (
 
@@ -82,7 +83,7 @@ const styles = StyleSheet.create({
         // height: 50
     },
     imageStyle: {
-        marginTop: 60,
+        marginTop: 20,
         width: 375,
         height: 200,
         resizeMode: 'center'
