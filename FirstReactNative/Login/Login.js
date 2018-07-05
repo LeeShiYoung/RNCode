@@ -86,6 +86,11 @@ export default class Login extends Component {
                       onPress={() => this.props.onPressRedux()}>
                     Redux
                 </Text>
+
+                <Text style={styles.bigTextPrompt}
+                      onPress={() => this.props.onPressLocalData()}>
+                    数据持久化
+                </Text>
             </View>
         );
     }
@@ -158,5 +163,6 @@ Login.propTypes = {
     onPressToView: PropTypes.func,
     onPressAndroidButton: PropTypes.func,
     onPressToList: PropTypes.func,
-    onPressRedux: PropTypes.func
+    onPressRedux: PropTypes.func,
+    onPressLocalData: PropTypes.func
 };
