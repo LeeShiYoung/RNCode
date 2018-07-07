@@ -23,6 +23,8 @@ class ReduxCompent extends Component {
     }
 
     render() {
+        console.log('🍎🍎🍎🍎🍎🍎');
+        console.log(this.props);
         const {dispatch, todos, counter} = this.props;
         let num = counter.num;
         let text = todos.text;

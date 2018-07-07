@@ -9,24 +9,25 @@ const fetchingApi = () => {
                 dispatch(fetchSuccess(response.data));
             })
             .catch(error => {
-                dispatch(fetchFailed(error));
+                console.log(error);
+                dispatch(fetchFailed(error.message));
             });
     }
 };
 
-export const fetchData = () => ({
+const fetchData = () => ({
     type: FETCH_DATA,
     stat: 'loading',
 
 });
 
-export const fetchSuccess = data => ({
+const fetchSuccess = data => ({
     type: FETCH_SUCCESS,
     stat: 'success',
     data
 });
 
-export const fetchFailed = error => ({
+const fetchFailed = error => ({
     type: FETCH_FAILED,
     stat: 'failed',
     error
