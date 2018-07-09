@@ -6,21 +6,24 @@ import React, {Component} from 'react';
 import {
     StyleSheet,
     View,
-    Text
+    Text,
+    ListView,
 } from 'react-native';
 import PropTypes from 'prop-types'
 import fetchingApi from "./Actions/action";
 import {connect} from 'react-redux';
+import HomeCell from "./HomeCell";
 
 class HomeView extends Component {
+
     constructor(props) {
         super(props);
-
-        console.log(connect(mapStateToProps, {fetchingApi})(HomeView));
+        this.dataSource = new ListView.DataSource({rowHasChanged: (r1, r2) => r1 !== r2});
     }
 
     componentDidMount() {
         this.props.fetchingApi();
+
     }
 
     render() {
@@ -34,11 +37,11 @@ class HomeView extends Component {
             </View>
         }
         if (stat === 'success') {
-            return <View style={styles.containter}>
-                <Text>
-                    {JSON.stringify(data)}
-                </Text>
-            </View>
+            return <ListView dataSource={this.dataSource.cloneWithRows(data)}
+                             renderRow={(rowData) => <HomeCell data={rowData}
+                             didSelected={(d) => console.log(d)}/>
+                             }/>
+
         }
         if (stat === 'failed') {
             return <View style={styles.containter}>
@@ -47,8 +50,6 @@ class HomeView extends Component {
                 </Text>
             </View>
         }
-
-
     }
 }
 
