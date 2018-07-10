@@ -16,7 +16,7 @@ export default class HomeProvider extends Component {
             <Provider store={store}>
                 <HomeView pushToDetail={() => {
                     console.log('🍎🍎🍎🍎');
-                    this.props.navigation.push('Detail')
+                    this.props.navigation.navigate('Detail')
                 }}/>
             </Provider>
         );
