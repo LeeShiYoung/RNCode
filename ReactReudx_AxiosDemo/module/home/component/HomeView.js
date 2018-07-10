@@ -41,7 +41,7 @@ class HomeView extends Component {
             return <ListView style={{backgroundColor: 'white'}}
                              dataSource={this.dataSource.cloneWithRows(data)}
                              renderRow={(rowData) => <HomeCell data={rowData}
-                                                               didSelected={() => console.log(this.props.navigation)}/>
+                                                               didSelected={() => this.props.pushToDetail()}/>
                              }/>
 
         }
@@ -63,12 +63,10 @@ const styles = StyleSheet.create({
     },
 });
 
-HomeView.navigationOptions = {
-    title: '首页',
-};
 
 HomeView.propTypes = {
-    fetchingApi: PropTypes.func.isRequired
+    fetchingApi: PropTypes.func.isRequired,
+    pushToDetail: PropTypes.func.isRequired,
 };
 
 const mapStateToProps = state => ({

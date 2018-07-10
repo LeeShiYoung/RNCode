@@ -13,8 +13,8 @@ import HomeProvider from "../home/component/HomeProvider";
 import DetailView from "../detail/component/DetailView";
 
 const AppNavigator = createStackNavigator({
-    Home: HomeProvider,
-    Detail: DetailView,
+    Home: {screen: HomeProvider},
+    Detail: {screen: DetailView,},
 }, {
     initialRouteName: 'Home',
 });

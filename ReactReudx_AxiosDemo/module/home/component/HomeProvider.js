@@ -11,10 +11,19 @@ import store from '../store/store';
 export default class HomeProvider extends Component {
 
     render() {
+        console.log(this.props.navigation);
         return (
             <Provider store={store}>
-                <HomeView/>
+                <HomeView pushToDetail={() => {
+                    console.log('🍎🍎🍎🍎');
+                    this.props.navigation.push('Detail')
+                }}/>
             </Provider>
         );
     }
 }
+
+
+HomeProvider.navigationOptions = {
+    title: '首页',
+};
