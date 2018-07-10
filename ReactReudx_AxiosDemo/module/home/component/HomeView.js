@@ -1,5 +1,5 @@
 /**
- * Created by Young on 2018/7/5.
+ * Created by Young on 2018/7/10.
  */
 
 import React, {Component} from 'react';
@@ -10,9 +10,10 @@ import {
     ListView,
 } from 'react-native';
 import PropTypes from 'prop-types'
-import fetchingApi from "./Actions/action";
+import fetchingApi from "../action/action";
 import {connect} from 'react-redux';
 import HomeCell from "./HomeCell";
+
 
 class HomeView extends Component {
 
@@ -37,9 +38,10 @@ class HomeView extends Component {
             </View>
         }
         if (stat === 'success') {
-            return <ListView dataSource={this.dataSource.cloneWithRows(data)}
+            return <ListView style={{backgroundColor: 'white'}}
+                             dataSource={this.dataSource.cloneWithRows(data)}
                              renderRow={(rowData) => <HomeCell data={rowData}
-                             didSelected={(d) => console.log(d)}/>
+                                                               didSelected={() => console.log(this.props.navigation)}/>
                              }/>
 
         }
@@ -61,6 +63,9 @@ const styles = StyleSheet.create({
     },
 });
 
+HomeView.navigationOptions = {
+    title: '首页',
+};
 
 HomeView.propTypes = {
     fetchingApi: PropTypes.func.isRequired

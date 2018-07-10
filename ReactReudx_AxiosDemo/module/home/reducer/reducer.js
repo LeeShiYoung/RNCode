@@ -1,4 +1,4 @@
-import {FETCH_DATA, FETCH_FAILED, FETCH_SUCCESS} from "../Actions/action_types";
+import {FETCH_DATA, FETCH_FAILED, FETCH_SUCCESS} from "../action/actionTypes";
 
 const initialState = {
     stat: 'loading',

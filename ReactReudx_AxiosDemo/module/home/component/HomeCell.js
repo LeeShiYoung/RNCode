@@ -1,5 +1,5 @@
 /**
- * Created by Young on 2018/7/9.
+ * Created by Young on 2018/7/10.
  */
 
 import React, {Component} from 'react';
@@ -21,7 +21,7 @@ export default class HomeCell extends Component {
     }
 
     render() {
-        const {thumbnail_pic_s, title} = this.props.data;
+        const {thumbnail_pic_s, title, author_name} = this.props.data;
 
         return (
             <TouchableOpacity style={styles.itemStyle}
@@ -32,8 +32,8 @@ export default class HomeCell extends Component {
                     <Text style={[styles.titleStyle, {fontSize: 15}]}>
                         {title}
                     </Text>
-                    <Text style={[styles.titleStyle, {fontSize: 13}]}>
-                        这个是副标题
+                    <Text style={[styles.titleStyle, {fontSize: 10}]}>
+                        {author_name}
                     </Text>
                 </View>
             </TouchableOpacity>

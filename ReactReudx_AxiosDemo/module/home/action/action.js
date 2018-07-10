@@ -1,4 +1,4 @@
-import {FETCH_DATA, FETCH_FAILED, FETCH_SUCCESS} from "./action_types";
+import {FETCH_DATA, FETCH_FAILED, FETCH_SUCCESS} from "./actionTypes";
 import axios from 'axios';
 
 const fetchingApi = () => {
